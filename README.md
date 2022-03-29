@@ -175,11 +175,7 @@ MFMAgent.getInstance().setHealthCheckListener { serverStatus ->
 }
 ```
 
-Also we can use another approach: implementing 
-```kotlin
-HealthCheckListener
-``` 
-by our Activity or Fragment
+Also we can use another approach: implementing `HealthCheckListener` by our Activity or Fragment
 
 ```kotlin
 class MyActivity : ComponentActivity(), HealthCheckListener {

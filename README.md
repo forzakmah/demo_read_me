@@ -157,9 +157,11 @@ This permission is required to detect device reboot
 <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
  ```
 
-#### Health check
+### Health check
+A health check is a monitoring service that indicate the state of the microservices .
+we can say it's monitoring method that checks your API and alerts you when it notices something's amiss
 
-You can check the server status using Lambda function (anonymous function)
+We can check the server status using Lambda function (anonymous function)
 
 ```kotlin
 MFMAgent.getInstance().setHealthCheckListener { serverStatus ->
@@ -173,7 +175,11 @@ MFMAgent.getInstance().setHealthCheckListener { serverStatus ->
 }
 ```
 
-Also we can use another approach: implementing ```kotlin HealthCheckListener``` by our Activity or Fragment
+Also we can use another approach: implementing 
+```kotlin
+HealthCheckListener
+``` 
+by our Activity or Fragment
 
 ```kotlin
 class MyActivity : ComponentActivity(), HealthCheckListener {

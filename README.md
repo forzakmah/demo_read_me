@@ -158,19 +158,24 @@ This permission is required to detect device reboot
  ```
 
 ### Health check
-A health check is a monitoring service that indicate the state of the microservices .
-we can say it's monitoring method that checks your API and alerts you when it notices something's amiss
+
+A health check is a monitoring service that indicate the state of the microservices . we can say it's monitoring method
+that checks your API and alerts you when it notices something's amiss
 
 We can check the server status using Lambda function (anonymous function)
 
 ```kotlin
 MFMAgent.getInstance().setHealthCheckListener { serverStatus ->
-    if (serverStatus == ServerStatus.ONLINE) {
-        // handle result of online
-    } else if (serverStatus == ServerStatus.OFFLINE) {
-        // handle result of offline
-    } else {
-        //ServerStatus.UNKNOWN
+    when (serverStatus) {
+        ServerStatus.ONLINE -> {
+            /* handle result of online */
+        }
+        ServerStatus.OFFLINE -> {
+            /* handle result of offline */
+        }
+        else -> {
+            /* ServerStatus.UNKNOWN */
+        }
     }
 }
 ```
